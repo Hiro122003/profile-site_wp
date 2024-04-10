@@ -1,0 +1,250 @@
+@charset "utf-8";
+@use 'setting' as *;
+@use 'common' as *;
+
+@include common;
+
+/*                メイン main
+======================================================= */
+.l-main {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  margin-top: -100px;
+  @include media768 {
+    margin-top: -80px;
+  }
+}
+
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url('/wp-content/themes/portfolio_wp/img/leaves-6601325_1920.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: -1;
+}
+
+.p-main-flex {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media1024 {
+    display: block;
+  }
+}
+
+.main-logo {
+  width: 40%;
+  height: auto;
+  @include media1024 {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 42px;
+    padding-top: 100px;
+  }
+  .main-logo-item {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    @include media1024 {
+      width: 300px;
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.main-intro {
+  width: 60%;
+  padding-top: 120px;
+  @include media1024 {
+    // padding-top: 20px;
+    width: 100%;
+    padding-top: 0;
+  }
+}
+
+.main-occupation {
+  font-size: 48px;
+  font-family: $sofia;
+  font-weight: 700;
+  color: $darkBlue;
+  margin-bottom: 14px;
+  letter-spacing: 0.2em;
+  @include media1024 {
+    text-align: center;
+    font-size: 36px;
+  }
+  @include media768 {
+    font-size: 28px;
+  }
+}
+
+.intro-flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  @include media1024 {
+    justify-content: center;
+  }
+}
+
+.intro-name {
+  font-size: 60px;
+  font-family: $sofia;
+  font-weight: 700;
+  color: $darkBlue;
+  margin-right: 20px;
+  letter-spacing: 0.2em;
+  @include media1024 {
+    font-size: 48px;
+  }
+  @include media768 {
+    font-size: 36px;
+  }
+  @include media480 {
+    font-size: 28px;
+  }
+}
+
+.self-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  @include media1024 {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+  @include media768 {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 8px;
+  }
+  @include media480 {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 6px;
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.main-intro-text {
+  font-size: 28px;
+  font-family: $fontNoto;
+  color: $darkBlue;
+  line-height: 2.8;
+  @include media1024 {
+    text-align: center;
+  }
+  @include media768 {
+    font-size: 24px;
+    line-height: 2;
+  }
+  @include media480 {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+}
+
+.intro-text {
+  @include media1300 {
+    font-size: 22px;
+    & .word-break-2 {
+      display: block;
+    }
+    @include media480 {
+      font-size: 18px;
+    }
+  }
+}
+
+// オープニングアニメーション
+.fv_loading {
+  background: url('../img/christmas-bauble-1079926_1920.jpg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 102;
+  opacity: 1;
+  transition: opacity 3.5s;
+  &.load {
+    opacity: 0;
+  }
+  &.none {
+    display: none;
+  }
+}
+
+.fv_loading-shadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 101;
+    transition: all 1.5s;
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+  &.load {
+    &::before,
+    &::after {
+      width: 0;
+      opacity: 0;
+      transition: all 1.5s;
+    }
+  }
+  &.none {
+    display: none;
+  }
+}
+
+.fv_logo_loading {
+  width: 1400px;
+  max-width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 102;
+  opacity: 1;
+  transition: all 3.5s;
+  &.load {
+    height: 0;
+    opacity: 0;
+    transition: all 3.5s;
+  }
+  &.none {
+    display: none;
+  }
+  &.fv_logo_item {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,376 @@
+@use 'setting' as *;
+
+@mixin common {
+  @include body;
+
+  .l-wrapper {
+    padding-top: 70px;
+    // overflow: hidden;
+    max-width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    height: 100%;
+    @include media768 {
+      padding-top: 80px;
+    }
+  }
+}
+
+/*                ヘッダー header
+======================================================= */
+.p-hd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  @include media768 {
+    height: 80px;
+  }
+}
+
+.p-hd_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  padding-right: 100px;
+  &:hover {
+    & img {
+      animation: logo 1s infinite;
+    }
+  }
+  @include media768 {
+    // width: 150px;
+    // height: 60px;
+    // padding-right: 50px;
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+
+}
+
+.p-dh-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.hd-nav {
+  height: 100%;
+  @include media768 {
+    display: none;
+  }
+}
+
+.hd-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.hd-nav-item {
+  height: 100%;
+  padding-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.hd-nav-link {
+  display: block;
+  padding: 0 10px;
+  &:hover {
+    & span {
+      color: #0bd;
+      &::before {
+        width: 100%;
+        opacity: 1;
+        left: 0;
+        transition: all 0.5s;
+      }
+    }
+  }
+}
+
+.hd-nav-link span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: $darkBlue;
+  font-family: $sofia;
+  font-style: italic;
+  position: relative;
+  transition: all 1s;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 0;
+    opacity: 0;
+    height: 2px;
+    background-color: #0bd;
+    bottom: -5px;
+    left: 50%;
+  }
+}
+
+.contact-form {
+  height: 80%;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 20px;
+}
+
+/*                ハンバーガーメニュー sp-menu
+======================================================= */
+
+.l-sp-menu-btn {
+  height: 60px;
+  width: 100px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  position: absolute;
+  left: 55%;
+  top: 10px;
+  z-index: 101;
+  overflow: hidden;
+  margin-left: 20px;
+  cursor: pointer;
+  @include media769up {
+    display: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(27, 68, 54, 0.8);
+    // top: 50%;
+    left: 0;
+    overflow: hidden;
+  }
+  &:hover {
+    &::before {
+      // top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: all 0.5s;
+    }
+     .p-sp-menu-btn-title {
+      color: #fff !important;
+      z-index: 200;
+    }
+  }
+}
+
+.p-sp-menu-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.p-sp-menu-btn-title {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: $sofia;
+  color: $darkBlue;
+}
+
+/*                オーバーレイ sp-menu-overlay
+======================================================= */
+.l-sp-menu {
+  @include media769up {
+    display: none;
+  }
+  transition: all 1s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  &.active {
+    height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 1s;
+  }
+}
+
+.p-sp-menu {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.p-sp-menu__list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.p-sp-menu__item {
+  display: flex;
+  justify-content: center;
+  &--contact {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $lightBrown;
+  }
+}
+
+.p-sp-menu__link {
+  color: #fff;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 32px;
+  height: 120px;
+  font-family: $sofia;
+  & span {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0;
+      opacity: 0;
+      height: 2px;
+      background-color: #0bd;
+      bottom: -2px;
+      left: 50%;
+      transition: all 0.5s;
+    }
+  }
+  &:hover {
+    color: #0bd;
+    & span {
+      &::before {
+        width: 100%;
+        opacity: 1;
+        left: 0;
+        transition: all 0.5s;
+      }
+    }
+  }
+  &--contact-btn {
+    color: $darkBlue;
+    line-height: 120px;
+  }
+}
+
+
+
+/*                フッター footer
+======================================================= */
+.l-footer {
+  margin-top: 80px;
+  width: 100%;
+  height: 120px;
+  background-color: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  @include media480 {
+    margin-top: 60px;
+    height: 100px;
+  }
+  &.load {
+    opacity: 1;
+    transition: all 1s;
+  }
+  .p-footer-title {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: $sofia;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 8px;
+    @include media768 {
+      font-size: 18px;
+    }
+    @include media480 {
+      font-size: 16px;
+    } 
+  }
+  .p-footer-date {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $sofia;
+    color: #fff;
+    text-align: center;
+    @include media768 {
+      font-size: 14px;
+    }
+    @include media480 {
+      font-size: 12px;
+    }
+  }
+}
+
+/*                パンくずリスト breadcrumb
+======================================================= */
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+  background-color: $green;
+  height: 50px;
+  padding-left: 28px;
+  color: #fff;
+  @include media768 {
+    height: 40px;
+    padding-left: 12px;
+    font-size: 14px;
+    gap: 0 6px;
+  }
+  @include media480 {
+    height: 30px;
+    padding-left: 6px;
+    font-size: 10px;
+    gap: 0 2px;
+  }
+}

@@ -1,0 +1,331 @@
+@charset "utf-8";
+@use 'setting' as *;
+@use 'common' as *;
+
+@include common;
+
+/*                ファーストビュー first-view
+======================================================= */
+// .l-about {
+//   padding-top: 100px;
+//   overflow: hidden;
+//   @include media768 {
+//     padding-top: 80px;
+//   }
+// }
+
+.first_view {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.p-first-view {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.p-first-view__fv-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.p-first-view__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes kv_zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+.swiper-slide-active .p-first-view__img,
+.swiper-slide-prev .p-first-view__img,
+.swiper-slide-dupuicate-active .p-first-view__img,
+.swiper-slide-dupuicate-prev .p-first-view__img {
+  animation: kv_zoom 10s linear 0s normal both;
+}
+
+// ページネーション
+.p-first-view__pagination-wrap {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+}
+@media only screen and (max-width: 767px) {
+  .p-first-view__pagination-wrap {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+  }
+}
+
+.p-first-view__pagination {
+  display: flex;
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  background-color: transparent;
+  width: 30px;
+  margin: 0 7px !important;
+  opacity: 1;
+}
+.swiper-pagination-bullet::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active::before {
+  background-color: #6a7541;
+}
+
+.p-first-view__fv-message {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*                自己紹介 self-introduction
+======================================================= */
+.l-intro {
+  padding-top: 180px;
+}
+
+.p-intro {
+  position: relative;
+}
+
+.intro-text {
+  padding: 0 5%;
+  position: relative;
+}
+
+.intro-item {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.2em;
+  @include media1201up {
+    font-size: 24px;
+  }
+  @include media768 {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    .word-break {
+      display: block;
+    }
+  }
+  @include media480 {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+.p-settled-city {
+  margin-top: 70px;
+  text-align: center;
+  & h2 {
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: $fontMintyo;
+    letter-spacing: 0.15em;
+    position: relative;
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(184, 218, 247, 0.4);
+      border-radius: 10px;
+    }
+    @include media480 {
+      font-size: 36px;
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+// スライダーの実装 p-intro-slide
+.p-intro-slide {
+  width: 100%;
+  height: 600px;
+  padding: 30px 0;
+  margin: 0 auto;
+  @include media768 {
+    height: 500px;
+  }
+  @include media480 {
+    height: 400px;
+  }
+}
+
+.p-swiper-img {
+  // border: 10px solid $sky;
+  box-shadow: 10px 10px 10px 5px #e0dada;
+}
+
+.p-intro-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.swiper-wrapper,
+.swiper-slide {
+  transition-timing-function: linear !important;
+}
+
+.city-name {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.animation_logo {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  animation: city-animation 2s linear 0s infinite normal both;
+  &-1 {
+    top: 80px;
+    left: 4%;
+  }
+  &-2 {
+    top: 80px;
+    right: 4%;
+  }
+  .animation_logo-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @include media1024 {
+    display: none;
+  }
+  
+}
+
+@keyframes city-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*                趣味 hobby ======================================================= */
+.l-hobby {
+  padding-top: 180px;
+}
+
+.p-hobby {
+  width: 100%;
+  padding: 0 4%;
+  margin: 0 auto 50px;
+  text-align: center;
+  @include media768 {
+    padding: 0 2%;
+  }
+}
+
+.p-hobby-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: $fontMintyo;
+  letter-spacing: 0.15em;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(184, 218, 247, 0.4);
+    border-radius: 10px;
+  }
+  @include media480 {
+    font-size: 36px;
+    letter-spacing: 0.1em;
+  }
+}
+
+.hobby-flex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  @include media1024 {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    gap: 80px 0;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+} 
+
+.hobby-item {
+  max-width: 600px;
+  height: 400px;
+  // overflow: hidden;
+  @include media1024 {
+    width: 100%;
+  }
+  & img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+}
+
+.hobby-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.hobby-item {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-top: 10px;
+}
