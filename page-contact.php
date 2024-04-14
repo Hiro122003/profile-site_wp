@@ -12,7 +12,9 @@ get_header(); ?>
 <?php endif; ?>
 
       <!-- メインコンテンツ main -->
-      <div id="contact" class="l-contact">
+        <?php the_content(); ?>
+
+      <!-- <div id="contact" class="l-contact">
         <div class="p-contact-form">
             <h2 class="p-contact-main-title">お問い合わせ</h2>
             <form action="">
@@ -45,6 +47,6 @@ get_header(); ?>
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
 
 <?php get_footer(); ?>

@@ -11,6 +11,7 @@
   height: 100%;
   position: relative;
   margin-top: -100px;
+  
   @include media768 {
     margin-top: -80px;
   }
@@ -24,6 +25,7 @@
   background-position: center;
   position: relative;
   z-index: -1;
+  padding-bottom: 240px;
 }
 
 .p-main-flex {

@@ -1,7 +1,7 @@
 <footer class="l-footer" id="footer">
     <div class="p-footer">
       <h2 class="p-footer-title">Thank you for comming to my Profile-Site</h2>
-      <small class="p-footer-date">created in April 2024</small>
+      <small class="p-footer-date">このサイトはreCAPTCHAによって保護されており、<br>Googleのプライバシーポリシーと利用規約が適用されます。</small>
     </div>
   </footer>
 

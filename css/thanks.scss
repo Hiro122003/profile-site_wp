@@ -1,0 +1,34 @@
+@charset "utf-8";
+@use 'setting' as *;
+@use 'common' as *;
+
+@include common;
+
+.thanks {
+  height: calc(100vh - 270px);
+  width: 100%;
+  @include media768 {
+    height: calc(100vh - 210px);
+  }
+}
+
+.thanks-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 80% - 10px);
+  height: min(120px, 25% - 10px);
+  margin: 0 auto;
+  border: 1px solid $darkBlue;
+  background-color: #EEE;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.thanks-reply {
+  font-size: clamp(14px, 2.5vw, 24px);
+}

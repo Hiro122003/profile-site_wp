@@ -6,13 +6,15 @@
 
 /*                ファーストビュー first-view
 ======================================================= */
-// .l-about {
-//   padding-top: 100px;
-//   overflow: hidden;
-//   @include media768 {
-//     padding-top: 80px;
-//   }
-// }
+.l-about {
+  // padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: hidden;
+  @include media768 {
+    // padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
 
 .first_view {
   height: 100vh;
@@ -93,24 +95,31 @@
 }
 
 .p-first-view__fv-message {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  text-align: center;
-  color: #fff;
-  font-size: 42px;
-  font-weight: 700;
-  font-style: italic;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#my-svg {
+  fill-opacity: 0;
+  transition: fill-opacity 0.5s;
+}
+
+#my-svg.finished {
+  fill-opacity: 1;
 }
 
 /*                自己紹介 self-introduction
 ======================================================= */
 .l-intro {
-  padding-top: 180px;
+  padding-top: 120px;
+  @include media768 {
+    padding-top: 80px;
+  }
 }
 
 .p-intro {
@@ -232,7 +241,6 @@
   @include media1024 {
     display: none;
   }
-  
 }
 
 @keyframes city-animation {
@@ -300,7 +308,7 @@
     margin: 0 auto;
     max-width: 800px;
   }
-} 
+}
 
 .hobby-item {
   max-width: 600px;
