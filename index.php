@@ -23,8 +23,8 @@
             </div>
             <div class="main-intro-text">
               <p class="intro-text">
-                はじめまして。WEB CODERのHiroです。<br />
-                このサイトは、私のポートフォリオサイトです。<br />
+                
+                私のポートフォリオサイトへようこそ<br />
                 WordPressでのサイト制作や、<br>HTML/CSS/JavaScriptを使ったコーディングなど、<br />
                 お仕事のご依頼やご相談など、<span class="word-break-2">お気軽にお問い合わせください。</span>
               </p>
