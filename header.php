@@ -27,6 +27,9 @@
   <?php elseif (is_page('news')) : ?>
     <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/news.css" />
 
+  <?php elseif (is_page('works')) : ?>
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/works.css" />
+
   <?php elseif (is_page('contact')) : ?>
     <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/contact.css" />
 
@@ -70,6 +73,9 @@
             <li class="hd-nav-item">
               <a href="<?php echo esc_url(home_url('/')); ?>news" class="hd-nav-link <?php if (is_page('news')) echo 'current'; ?>"><span>News</span></a>
             </li>
+            <li class="hd-nav-item">
+              <a href="<?php echo esc_url(home_url('/')); ?>works" class="hd-nav-link <?php if (is_page('works')) echo 'current'; ?>"><span>Works</span></a>
+            </li>
             <li class="hd-nav-item contact-item">
               <a href="<?php echo esc_url(home_url('/')); ?>contact" class="hd-nav-link <?php if (is_page('contact')) echo 'current'; ?> contact-form"><span>Contact</span></a>
             </li>
@@ -98,6 +104,9 @@
           </li>
           <li class="p-sp-menu__item">
             <a href="<?php echo esc_url(home_url('/')); ?>news/" class="p-sp-menu__link<?php if (is_page('news')) echo ' current'; ?>"><span>News</span></a>
+          </li>
+          <li class="p-sp-menu__item">
+            <a href="<?php echo esc_url(home_url('/')); ?>works/" class="p-sp-menu__link<?php if (is_page('works')) echo ' current'; ?>"><span>Works</span></a>
           </li>
           <li class="p-sp-menu__item p-sp-menu__item--contact">
             <a href="<?php echo esc_url(home_url('/')); ?>contact/" class="p-sp-menu__link p-sp-menu__link--contact-btn<?php if (is_page('contact')) echo ' current'; ?>"><span>Contact</span></a>

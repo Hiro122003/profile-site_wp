@@ -37,13 +37,13 @@
   </main>
 
   <!-- オープニングアニメーション -->
-  <div class="fv_loading">
+  <!-- <div class="fv_loading">
     <div class="fv_loading-shadow">
       <div class="fv_logo fv_logo_loading">
         <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/thank-you-2490552_1920.png" alt="welcome for my site" class="fv_logo_item" />
       </div>
     </div>
-  </div>
+  </div> -->
 
   </div>
 
